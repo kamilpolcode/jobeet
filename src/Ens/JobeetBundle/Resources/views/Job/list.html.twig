@@ -1,4 +1,5 @@
 <table class="jobs">
+    <tbody>
   {% for entity in jobs %}
     <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
       <td class="location">{{ entity.location }}</td>
@@ -10,4 +11,5 @@
       <td class="company">{{ entity.company }}</td>
     </tr>
   {% endfor %}
+    </tbody>
 </table>
