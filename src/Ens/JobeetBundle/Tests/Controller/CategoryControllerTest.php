@@ -41,7 +41,7 @@ class CategoryControllerTest extends WebTestCase
     $link = $crawler->selectLink('Programming')->link();
     $crawler = $client->click($link);
     $this->assertTrue($crawler->filter('.jobs tr')->count() == $max_jobs_on_category);
-    $this->assertRegExp('/30 jobs/', $crawler->filter('.pagination_desc')->text());
+    $this->assertRegExp('/31 jobs/', $crawler->filter('.pagination_desc')->text());
     $this->assertRegExp('/page 1\/2/', $crawler->filter('.pagination_desc')->text());
  
     $link = $crawler->selectLink('2')->link();

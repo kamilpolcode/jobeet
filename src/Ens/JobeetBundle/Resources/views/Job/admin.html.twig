@@ -14,9 +14,17 @@
             <form action="{{ path('ens_job_delete', { 'token': job.token }) }}" method="post">
                 {{ form_widget(delete_form) }}
                 <button type="submit" onclick="if (!confirm('Are you sure?')) {
-                    return false;
-                }">Delete</button>
+                            return false;
+                        }">Delete</button>
             </form>
+        </li>
+        <li>
+            {% if job.expiresSoon %}
+                <form action="{{ path('ens_job_extend', { 'token': job.token }) }}" method="post">
+                    {{ form_widget(extend_form) }}
+                    <button type="submit">Extend</button> for another 30 days
+                </form>
+            {% endif %}
         </li>
         {% if job.isActivated %}
             <li {% if job.expiresSoon %} class="expires_soon" {% endif %}>

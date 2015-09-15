@@ -7,3 +7,14 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    ens.jobeet.admin.category:
+        class: Ens\JobeetBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: jobeet, label: Categories }
+        arguments: [null, Ens\JobeetBundle\Entity\Category, EnsJobeetBundle:CategoryAdmin]
+ 
+    ens.jobeet.admin.job:
+        class: Ens\JobeetBundle\Admin\JobAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: jobeet, label: Jobs }
+        arguments: [null, Ens\JobeetBundle\Entity\Job, EnsJobeetBundle:JobAdmin]
